@@ -49,6 +49,7 @@
   .stat-value { font-family: 'Cinzel', serif; font-size: 28px; color: var(--gold); }
   .toast { position: fixed; bottom: 30px; right: 30px; background: var(--navy-mid); border-left: 4px solid var(--gold); padding: 12px 20px; border-radius: 10px; z-index: 9999; transform: translateX(200%); transition: 0.3s; }
   .toast.show { transform: translateX(0); }
+  .camera-status { font-size: 12px; margin-top: 8px; color: #aaa; }
   @media (max-width: 900px) { .reg-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -61,10 +62,10 @@
     <div><div class="clock-display" id="clockDisplay"></div><div class="visitor-count-badge" id="todayBadge">0 Tamu</div></div>
   </div>
   <div class="tab-bar">
-    <button class="tab-btn active" onclick="switchTab('register',this)">📋 Registrasi</button>
-    <button class="tab-btn" onclick="switchTab('list',this)">👥 Daftar Tamu</button>
-    <button class="tab-btn" onclick="switchTab('report',this)">📊 Laporan</button>
-    <button class="tab-btn" onclick="switchTab('settings',this)">⚙️ Pengaturan & Cloud</button>
+    <button class="tab-btn active" data-tab="register">📋 Registrasi</button>
+    <button class="tab-btn" data-tab="list">👥 Daftar Tamu</button>
+    <button class="tab-btn" data-tab="report">📊 Laporan</button>
+    <button class="tab-btn" data-tab="settings">⚙️ Pengaturan & Cloud</button>
   </div>
 </header>
 
@@ -72,23 +73,38 @@
   <!-- REGISTRASI -->
   <div class="tab-panel active" id="tab-register">
     <div class="reg-grid">
-      <div><div class="card"><div class="card-title">🎫 SCAN / INPUT NOMOR VISITOR</div><input type="text" id="visitorNo" placeholder="Scan barcode / ketik nomor" style="font-family:monospace;font-size:18px"><button class="btn btn-sm btn-success" onclick="simulateScan()">Demo Scan</button></div>
-      <div class="card"><div class="card-title">🪪 DATA TAMU</div>
-        <div class="form-group"><label>NIK (16 digit)</label><input type="text" id="nik" maxlength="16" oninput="onNikInput(this.value)"></div>
-        <div class="form-group"><label>Nama Lengkap *</label><input type="text" id="nama"></div>
-        <div class="form-row" style="display:flex;gap:12px"><div class="form-group"><label>No HP *</label><input type="text" id="hp"></div><div class="form-group"><label>Keperluan</label><select id="keperluan"><option>Sidang</option><option>Konsultasi</option><option>Legalisir</option></select></div></div>
-        <div class="form-group"><label>Instansi / Kantor</label><input type="text" id="instansi"></div>
-        <div class="submit-section"><button class="btn btn-primary" onclick="registerVisitor()">✅ DAFTARKAN</button><button class="btn btn-secondary" onclick="clearForm()">Reset</button></div>
-      </div></div>
-      <div><div class="card"><div class="card-title">📸 FOTO WAJAH</div><video id="webcam" autoplay playsinline style="width:100%;border-radius:8px"></video><canvas id="canvas" style="display:none"></canvas><img id="photo" style="display:none;width:100%"><button class="btn btn-primary" onclick="capturePhoto()">Ambil Foto</button><button class="btn btn-secondary" onclick="retakePhoto()" id="retakeBtn" style="display:none">Ulang</button></div>
-      <div class="card"><div class="card-title">☁️ STATUS CLOUD</div><div id="cloudStatus" class="cloud-badge">🔌 Belum terhubung</div><button class="btn btn-sm btn-secondary" onclick="document.getElementById('tab-settings').click()">Setup Firebase</button></div></div>
+      <div>
+        <div class="card"><div class="card-title">🎫 SCAN / INPUT NOMOR VISITOR</div><input type="text" id="visitorNo" placeholder="Scan barcode / ketik nomor" style="font-family:monospace;font-size:18px"><button class="btn btn-sm btn-success" onclick="simulateScan()">Demo Scan</button></div>
+        <div class="card"><div class="card-title">🪪 DATA TAMU</div>
+          <div class="form-group"><label>NIK (16 digit)</label><input type="text" id="nik" maxlength="16" oninput="onNikInput(this.value)"></div>
+          <div class="form-group"><label>Nama Lengkap *</label><input type="text" id="nama"></div>
+          <div class="form-row" style="display:flex;gap:12px"><div class="form-group"><label>No HP *</label><input type="text" id="hp"></div><div class="form-group"><label>Keperluan</label><select id="keperluan"><option>Sidang</option><option>Konsultasi</option><option>Legalisir</option></select></div></div>
+          <div class="form-group"><label>Instansi / Kantor</label><input type="text" id="instansi"></div>
+          <div class="submit-section"><button class="btn btn-primary" onclick="registerVisitor()">✅ DAFTARKAN</button><button class="btn btn-secondary" onclick="clearForm()">Reset</button></div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">📸 FOTO WAJAH</div>
+          <video id="webcam" autoplay playsinline style="width:100%;border-radius:8px;background:#000"></video>
+          <canvas id="canvas" style="display:none"></canvas>
+          <img id="photo" style="display:none;width:100%;margin-top:8px">
+          <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+            <button class="btn btn-primary" onclick="capturePhoto()" id="captureBtn">📸 Ambil Foto</button>
+            <button class="btn btn-secondary" onclick="retakePhoto()" id="retakeBtn" style="display:none">🔄 Ulang</button>
+            <button class="btn btn-secondary" onclick="initCamera()" id="cameraRetryBtn" style="display:none">📷 Coba Aktifkan Kamera</button>
+          </div>
+          <div id="cameraStatusMsg" class="camera-status">🔍 Menunggu izin kamera...</div>
+        </div>
+        <div class="card"><div class="card-title">☁️ STATUS CLOUD</div><div id="cloudStatus">🔌 Belum terhubung</div><button class="btn btn-sm btn-secondary" onclick="switchTab('settings')">Setup Firebase</button></div>
+      </div>
     </div>
   </div>
 
   <!-- DAFTAR TAMU -->
   <div class="tab-panel" id="tab-list">
     <div class="stats-grid" id="statsGrid"></div>
-    <div class="card"><div class="card-title">📋 SEMUA TAMU</div><input type="text" id="searchList" placeholder="Cari..." oninput="filterVisitors()" style="margin-bottom:12px"><div class="table-wrapper"><table id="visitorTable"><thead><tr><th>#</th><th>Nama</th><th>NIK</th><th>HP</th><th>Keperluan</th><th>Jam Masuk</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="visitorListBody"></tbody></table></div><div id="pagination"></div></div>
+    <div class="card"><div class="card-title">📋 SEMUA TAMU</div><input type="text" id="searchList" placeholder="Cari..." oninput="filterVisitors()" style="margin-bottom:12px"><div class="table-wrapper"><table id="visitorTable"><thead><tr><th>#</th><th>Nama</th><th>NIK</th><th>HP</th><th>Keperluan</th><th>Jam Masuk</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="visitorListBody"></tbody>}</div><div id="pagination"></div></div>
   </div>
 
   <!-- LAPORAN -->
@@ -100,8 +116,8 @@
   <div class="tab-panel" id="tab-settings">
     <div class="card"><div class="card-title">☁️ KONFIGURASI FIREBASE</div><p style="margin-bottom:12px">Masukkan konfigurasi Firebase (dari Firebase Console) lalu klik Hubungkan. Data akan otomatis tersimpan ke cloud dan bisa diakses dari perangkat lain.</p>
     <textarea id="firebaseConfig" rows="5" placeholder='{"apiKey":"xxx","authDomain":"xxx","projectId":"xxx","storageBucket":"xxx","messagingSenderId":"xxx","appId":"xxx"}' style="width:100%;font-family:monospace;margin-bottom:12px"></textarea>
-    <button class="btn btn-success" onclick="setupFirebase()">🔌 Hubungkan ke Firebase</button>
-    <button class="btn btn-secondary" onclick="useOfflineMode()">📴 Gunakan Offline Saja</button>
+    <button class="btn btn-success" id="firebaseConnectBtn">🔌 Hubungkan ke Firebase</button>
+    <button class="btn btn-secondary" id="offlineModeBtn">📴 Gunakan Offline Saja</button>
     <hr style="margin:16px 0;border-color:var(--border)">
     <button class="btn btn-secondary" onclick="exportAllData()">💾 Backup JSON</button>
     <button class="btn btn-danger" onclick="clearAllData()">⚠️ Hapus Semua Data Lokal</button>
@@ -128,7 +144,7 @@ const openIDB = () => new Promise((resolve, reject) => {
   req.onerror = e => reject(e.target.error);
 });
 
-async function loadFromIDB() { if(!idb) return []; return new Promise(r => { const tx = idb.transaction('visitors','readonly'); r(tx.objectStore('visitors').getAll()); }); }
+async function loadFromIDB() { if(!idb) return []; return new Promise(r => { const tx = idb.transaction('visitors','readonly'); const req = tx.objectStore('visitors').getAll(); req.onsuccess = () => r(req.result); }); }
 async function saveToIDB(data) { if(!idb) return; const tx = idb.transaction('visitors','readwrite'); const store = tx.objectStore('visitors'); store.clear(); data.forEach(d => store.put(d)); return tx.complete; }
 
 // Firebase setup
@@ -137,8 +153,8 @@ async function setupFirebase() {
   if(!configText) { showToast('Masukkan konfigurasi Firebase'); return; }
   try {
     const config = JSON.parse(configText);
-    if(!config.apiKey || !config.projectId) throw new Error('Config tidak lengkap');
-    if(window.firebaseApp) { if(unsubscribe) unsubscribe(); window.firebaseApp.delete(); }
+    if(!config.apiKey || !config.projectId) throw new Error('Config tidak lengkap (apiKey/projectId missing)');
+    if(window.firebaseApp) { if(unsubscribe) unsubscribe(); try { window.firebaseApp.delete(); } catch(e){} }
     const app = firebase.initializeApp(config, 'eTamuApp');
     window.firebaseApp = app;
     firestore = firebase.firestore(app);
@@ -148,7 +164,7 @@ async function setupFirebase() {
     await syncFromCloud();
     startCloudListener();
     updateCloudStatusUI(true);
-  } catch(e) { showToast('Gagal: '+e.message); }
+  } catch(e) { console.error(e); showToast('Gagal: '+e.message); }
 }
 
 async function syncFromCloud() {
@@ -173,9 +189,19 @@ function startCloudListener() {
   });
 }
 
-function useOfflineMode() { if(unsubscribe) unsubscribe(); isCloudEnabled=false; firestore=null; localStorage.removeItem('firebase_config'); updateCloudStatusUI(false); showToast('Mode offline aktif'); }
-function updateCloudStatusUI(on) { document.getElementById('cloudStatus').innerHTML = on ? '☁️ Cloud aktif (Firestore)' : '🔴 Mode offline (lokal)'; }
-async function manualSync() { if(isCloudEnabled && firestore) { await syncFromCloud(); showToast('Sinkron selesai'); } }
+function useOfflineMode() { 
+  if(unsubscribe) unsubscribe(); 
+  isCloudEnabled=false; 
+  firestore=null; 
+  localStorage.removeItem('firebase_config'); 
+  updateCloudStatusUI(false); 
+  showToast('Mode offline aktif'); 
+}
+
+function updateCloudStatusUI(on) { 
+  const el = document.getElementById('cloudStatus');
+  if(el) el.innerHTML = on ? '☁️ Cloud aktif (Firestore)' : '🔴 Mode offline (lokal)'; 
+}
 
 // Registrasi
 async function registerVisitor() {
@@ -217,9 +243,69 @@ function clearForm() {
 
 // Kamera
 let stream = null;
-async function initCamera() { try { const s = await navigator.mediaDevices.getUserMedia({video:true}); document.getElementById('webcam').srcObject = s; stream = s; } catch(e){} }
-function capturePhoto() { const video = document.getElementById('webcam'); const canvas = document.getElementById('canvas'); canvas.width = video.videoWidth; canvas.height = video.videoHeight; canvas.getContext('2d').drawImage(video,0,0); capturedPhoto = canvas.toDataURL('image/jpeg',0.7); document.getElementById('photo').src = capturedPhoto; document.getElementById('photo').style.display = 'block'; document.getElementById('retakeBtn').style.display = 'inline-flex'; }
-function retakePhoto() { capturedPhoto = null; document.getElementById('photo').style.display = 'none'; document.getElementById('retakeBtn').style.display = 'none'; }
+async function initCamera() {
+  const video = document.getElementById('webcam');
+  const statusMsg = document.getElementById('cameraStatusMsg');
+  const retryBtn = document.getElementById('cameraRetryBtn');
+  try {
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+      stream = null;
+    }
+    statusMsg.innerHTML = '⏳ Meminta izin kamera...';
+    const s = await navigator.mediaDevices.getUserMedia({ video: true });
+    stream = s;
+    video.srcObject = s;
+    await video.play();
+    statusMsg.innerHTML = '✅ Kamera aktif, siap ambil foto';
+    retryBtn.style.display = 'none';
+    video.style.display = 'block';
+    document.getElementById('photo').style.display = 'none';
+    document.getElementById('captureBtn').disabled = false;
+  } catch(e) {
+    console.error('Kamera error:', e);
+    let errorMsg = '❌ Gagal mengakses kamera: ';
+    if (e.name === 'NotAllowedError') errorMsg += 'Izin kamera ditolak. Izinkan akses kamera.';
+    else if (e.name === 'NotFoundError') errorMsg += 'Tidak ada kamera terdeteksi.';
+    else if (e.name === 'NotReadableError') errorMsg += 'Kamera sedang digunakan aplikasi lain.';
+    else errorMsg += e.message;
+    statusMsg.innerHTML = errorMsg;
+    retryBtn.style.display = 'inline-flex';
+    video.style.display = 'none';
+    document.getElementById('captureBtn').disabled = true;
+  }
+}
+
+function capturePhoto() {
+  if (!stream || !stream.active) {
+    showToast('Kamera tidak aktif. Klik "Coba Aktifkan Kamera"');
+    return;
+  }
+  const video = document.getElementById('webcam');
+  const canvas = document.getElementById('canvas');
+  if (video.videoWidth === 0 || video.videoHeight === 0) {
+    showToast('Kamera belum siap, tunggu sebentar');
+    return;
+  }
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
+  capturedPhoto = canvas.toDataURL('image/jpeg', 0.7);
+  const photoImg = document.getElementById('photo');
+  photoImg.src = capturedPhoto;
+  photoImg.style.display = 'block';
+  document.getElementById('retakeBtn').style.display = 'inline-flex';
+  document.getElementById('webcam').style.display = 'none';
+  showToast('Foto berhasil diambil');
+}
+
+function retakePhoto() {
+  capturedPhoto = null;
+  document.getElementById('photo').style.display = 'none';
+  document.getElementById('webcam').style.display = 'block';
+  document.getElementById('retakeBtn').style.display = 'none';
+  if (!stream || !stream.active) initCamera();
+}
 
 // Tampilan daftar
 let filtered = [], page=1, perPage=10;
@@ -242,9 +328,49 @@ async function clearAllData() { if(confirm('Hapus semua data LOKAL?')){ db=[]; a
 function onNikInput(val) { val=val.replace(/\D/g,''); document.getElementById('nik').value=val; if(val.length===16) showToast('NIK 16 digit'); }
 function simulateScan() { document.getElementById('visitorNo').value = 'VIS'+Math.floor(Math.random()*1000); showToast('Demo scan visitor'); }
 function showToast(msg) { const t=document.getElementById('toastMsg'); document.getElementById('toastText').innerText=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
-function switchTab(tab,btn) { document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active')); document.getElementById(`tab-${tab}`).classList.add('active'); btn.classList.add('active'); if(tab==='settings'){ const savedConfig = localStorage.getItem('firebase_config'); if(savedConfig) document.getElementById('firebaseConfig').value=savedConfig; } }
 
-(async function init() { idb = await openIDB(); const stored = await loadFromIDB(); db = stored || []; refreshUI(); initCamera(); const savedConfig = localStorage.getItem('firebase_config'); if(savedConfig) { try { document.getElementById('firebaseConfig').value = savedConfig; await setupFirebase(); } catch(e){} } })();
+// Tab switching
+function switchTab(tab) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`tab-${tab}`).classList.add('active');
+  const activeBtn = document.querySelector(`.tab-btn[data-tab="${tab}"]`);
+  if(activeBtn) activeBtn.classList.add('active');
+  if(tab === 'settings') {
+    const savedConfig = localStorage.getItem('firebase_config');
+    if(savedConfig) document.getElementById('firebaseConfig').value = savedConfig;
+  }
+}
+
+// Inisialisasi
+(async function init() {
+  // Setup tab listeners
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+  });
+  
+  idb = await openIDB();
+  const stored = await loadFromIDB();
+  db = stored || [];
+  refreshUI();
+  await initCamera();
+  
+  const savedConfig = localStorage.getItem('firebase_config');
+  if(savedConfig) {
+    try {
+      document.getElementById('firebaseConfig').value = savedConfig;
+      await setupFirebase();
+    } catch(e) { console.error(e); }
+  }
+  
+  // Setup tombol Firebase
+  document.getElementById('firebaseConnectBtn').addEventListener('click', setupFirebase);
+  document.getElementById('offlineModeBtn').addEventListener('click', useOfflineMode);
+  
+  function updateClock() { document.getElementById('clockDisplay').innerText = new Date().toLocaleTimeString('id-ID'); }
+  setInterval(updateClock, 1000);
+  updateClock();
+})();
 </script>
 </body>
 </html>
