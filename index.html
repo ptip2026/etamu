@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>e-Tamu v4.5 | PN Jakarta Selatan Kelas 1A Khusus</title>
+<title>e-Tamu v5.0 | PN Jakarta Selatan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
@@ -27,33 +27,33 @@
   .main-content { max-width: 1600px; margin: 0 auto; padding: 28px; }
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
-  .card { background: var(--glass); border: 1px solid var(--border); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); margin-bottom: 20px; }
-  .card-title { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+  .card { background: var(--glass); border: 1px solid var(--border); border-radius: 12px; padding: 20px; backdrop-filter: blur(10px); margin-bottom: 20px; }
+  .card-title { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
   .reg-grid { display: grid; grid-template-columns: 1fr 340px; gap: 24px; }
-  .form-group { margin-bottom: 14px; }
+  .form-group { margin-bottom: 12px; }
   label { font-size: 11px; font-weight: 700; color: var(--gold); text-transform: uppercase; display: block; margin-bottom: 4px; }
-  input, select, textarea { background: rgba(10,22,40,0.8); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: var(--white); font-size: 14px; width: 100%; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .btn { border: none; border-radius: 8px; padding: 8px 16px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+  input, select, textarea { background: rgba(10,22,40,0.8); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; color: var(--white); font-size: 14px; width: 100%; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .btn { border: none; border-radius: 8px; padding: 6px 14px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
   .btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy); }
   .btn-secondary { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
   .btn-success { background: #1A7A4A; color: white; }
   .btn-danger { background: #C0392B; color: white; }
   .btn-word { background: #1A5276; color: white; }
-  .badge-in { background: rgba(26,122,74,0.2); color: #5EB88A; padding: 2px 8px; border-radius: 20px; font-size: 10px; }
-  .badge-out { background: rgba(136,153,170,0.15); color: var(--gray); padding: 2px 8px; border-radius: 20px; font-size: 10px; }
+  .badge-in { background: rgba(26,122,74,0.2); color: #5EB88A; padding: 2px 8px; border-radius: 20px; font-size: 10px; display: inline-block; }
+  .badge-out { background: rgba(136,153,170,0.15); color: var(--gray); padding: 2px 8px; border-radius: 20px; font-size: 10px; display: inline-block; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th, td { padding: 10px 8px; text-align: left; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  th, td { padding: 8px 6px; text-align: left; border-bottom: 1px solid rgba(201,168,76,0.1); }
   th { color: var(--gold); font-size: 11px; }
   .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 20px; }
-  .stat-card { background: var(--glass); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
-  .stat-value { font-family: 'Cinzel', serif; font-size: 28px; color: var(--gold); }
-  .toast { position: fixed; bottom: 20px; right: 20px; background: var(--navy-mid); border-left: 4px solid var(--gold); padding: 10px 16px; border-radius: 8px; z-index: 9999; transform: translateX(200%); transition: 0.3s; }
+  .stat-card { background: var(--glass); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
+  .stat-value { font-family: 'Cinzel', serif; font-size: 24px; color: var(--gold); }
+  .toast { position: fixed; bottom: 20px; right: 20px; background: var(--navy-mid); border-left: 4px solid var(--gold); padding: 8px 16px; border-radius: 8px; z-index: 9999; transform: translateX(200%); transition: 0.3s; }
   .toast.show { transform: translateX(0); }
   .camera-box { aspect-ratio: 4/3; background: #000; border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
   video, #capturedPhoto { width: 100%; height: 100%; object-fit: cover; }
-  .ocr-drop-area, .csv-drop-area { border: 1px dashed var(--border); border-radius: 10px; padding: 20px; text-align: center; cursor: pointer; margin-bottom: 10px; }
-  .pagination { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .ocr-drop-area, .csv-drop-area { border: 1px dashed var(--border); border-radius: 10px; padding: 15px; text-align: center; cursor: pointer; margin-bottom: 10px; }
+  .pagination { display: flex; gap: 5px; margin-top: 12px; flex-wrap: wrap; justify-content: center; }
   .page-btn { background: transparent; border: 1px solid var(--border); color: var(--gray); padding: 4px 10px; border-radius: 6px; cursor: pointer; }
   .page-btn.active { background: var(--gold); color: var(--navy); }
   @media (max-width: 900px) { .reg-grid { grid-template-columns: 1fr; } }
@@ -64,7 +64,7 @@
 <header>
   <div class="header-inner">
     <div class="kop-logo-cell"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ3aw1Om4FHEN0_g7RLXQ2E0omsMjO-vfBjg&s" alt="Logo"></div>
-    <div class="header-text"><h1>PENGADILAN NEGERI JAKARTA SELATAN KELAS 1A KHUSUS</h1><p>e-TAMU v4.5 · IndexedDB · OCR · Cloud Sync (Opsional)</p></div>
+    <div class="header-text"><h1>PENGADILAN NEGERI JAKARTA SELATAN KELAS IA KHUSUS</h1><p>e-TAMU v5.0 · IndexedDB · OCR · Cloud Sync</p></div>
     <div><div class="clock-display" id="clockDisplay"></div><div class="visitor-count-badge" id="todayBadge">0 Tamu</div></div>
   </div>
   <div class="tab-bar">
@@ -81,13 +81,13 @@
   <div class="tab-panel active" id="tab-register">
     <div class="reg-grid">
       <div>
-        <div class="card"><div class="card-title">🎫 SCAN / INPUT NOMOR VISITOR</div><div style="display:flex;gap:10px;"><input type="text" id="visitorNo" placeholder="Scan atau ketik nomor" style="font-family:monospace"><button class="btn btn-success" onclick="demoScan()">Demo Scan</button><button class="btn btn-secondary" onclick="clearVisitorNo()">Clear</button></div><div id="visitorNoStatus" style="font-size:12px;margin-top:6px;"></div></div>
-        <div class="card"><div class="card-title">🪪 SCAN KTP (OCR)</div><div class="ocr-drop-area" onclick="document.getElementById('ktpFile').click()" ondragover="event.preventDefault()" ondrop="handleKtpDrop(event)">📄 Klik atau drag foto KTP</div><input type="file" id="ktpFile" accept="image/*" style="display:none"><div id="ocrPreview" style="display:none;margin-top:10px;"><img id="ocrImg" style="max-width:100%;max-height:100px"></div><div id="ocrResult" style="display:none;background:rgba(39,174,96,0.1);padding:10px;border-radius:8px;margin-top:10px;"></div><button class="btn btn-secondary btn-sm" onclick="openOcrCamera()">📷 Ambil Foto KTP via Kamera</button></div>
-        <div class="card"><div class="card-title">📋 DATA TAMU</div><div class="form-group"><label>No. Visitor</label><input type="text" id="visitorNoDisplay" readonly></div><div class="form-group"><label>NIK (16 digit)</label><input type="text" id="nik" maxlength="16" oninput="validateNik(this.value)"></div><div id="nikStatus" style="font-size:11px;"></div><div class="form-group"><label>Nama Lengkap *</label><input type="text" id="nama"></div><div class="form-row"><div class="form-group"><label>No HP *</label><input type="text" id="hp"></div><div class="form-group"><label>Jenis Kelamin</label><select id="gender"><option>Laki-laki</option><option>Perempuan</option></select></div></div><div class="form-row"><div class="form-group"><label>Tempat Lahir</label><input type="text" id="tempatLahir"></div><div class="form-group"><label>Tgl Lahir</label><input type="text" id="tglLahir" placeholder="DD-MM-YYYY"></div></div><div class="form-group"><label>Alamat</label><input type="text" id="alamat"></div><div class="form-row"><div class="form-group"><label>Keperluan</label><select id="keperluan"><option>Sidang Perdata</option><option>Sidang Pidana</option><option>Konsultasi</option><option>Legalisir</option><option>Lainnya</option></select></div><div class="form-group"><label>Bagian Tujuan</label><select id="bagian"><option>Panitera</option><option>Sekretariat</option><option>Kepaniteraan</option><option>Ruang Sidang</option></select></div></div><div class="form-group"><label>Instansi</label><input type="text" id="instansi"></div><div class="form-group"><label>Catatan</label><textarea id="catatan" rows="2"></textarea></div><div style="display:flex;gap:10px;margin-top:12px;"><button class="btn btn-primary" onclick="register()">✅ DAFTARKAN</button><button class="btn btn-secondary" onclick="clearForm()">Reset</button></div></div>
+        <div class="card"><div class="card-title">🎫 SCAN / INPUT NOMOR VISITOR</div><div style="display:flex;gap:8px;"><input type="text" id="visitorNo" placeholder="Scan atau ketik nomor" style="font-family:monospace"><button class="btn btn-success" id="demoScanBtn">Demo Scan</button><button class="btn btn-secondary" id="clearVisitorBtn">Clear</button></div><div id="visitorNoStatus" style="font-size:12px;margin-top:5px;"></div></div>
+        <div class="card"><div class="card-title">🪪 SCAN KTP (OCR)</div><div class="ocr-drop-area" id="ocrDropArea">📄 Klik atau drag foto KTP</div><input type="file" id="ktpFile" accept="image/*" style="display:none"><div id="ocrPreview" style="display:none;margin-top:10px;"><img id="ocrImg" style="max-width:100%;max-height:100px"></div><div id="ocrResult" style="display:none;background:rgba(39,174,96,0.1);padding:8px;border-radius:8px;margin-top:10px;"></div><button class="btn btn-secondary btn-sm" id="ocrCameraBtn">📷 Ambil Foto KTP via Kamera</button></div>
+        <div class="card"><div class="card-title">📋 DATA TAMU</div><div class="form-group"><label>No. Visitor</label><input type="text" id="visitorNoDisplay" readonly></div><div class="form-group"><label>NIK (16 digit)</label><input type="text" id="nik" maxlength="16" oninput="validateNik(this.value)"></div><div id="nikStatus" style="font-size:11px;"></div><div class="form-group"><label>Nama Lengkap *</label><input type="text" id="nama"></div><div class="form-row"><div class="form-group"><label>No HP *</label><input type="text" id="hp"></div><div class="form-group"><label>Jenis Kelamin</label><select id="gender"><option>Laki-laki</option><option>Perempuan</option></select></div></div><div class="form-row"><div class="form-group"><label>Tempat Lahir</label><input type="text" id="tempatLahir"></div><div class="form-group"><label>Tgl Lahir</label><input type="text" id="tglLahir" placeholder="DD-MM-YYYY"></div></div><div class="form-group"><label>Alamat</label><input type="text" id="alamat"></div><div class="form-row"><div class="form-group"><label>Keperluan</label><select id="keperluan"><option>Sidang Perdata</option><option>Sidang Pidana</option><option>Konsultasi</option><option>Legalisir</option><option>Lainnya</option></select></div><div class="form-group"><label>Bagian Tujuan</label><select id="bagian"><option>Panitera</option><option>Sekretariat</option><option>Kepaniteraan</option><option>Ruang Sidang</option></select></div></div><div class="form-group"><label>Instansi</label><input type="text" id="instansi"></div><div class="form-group"><label>Catatan</label><textarea id="catatan" rows="2"></textarea></div><div style="display:flex;gap:10px;margin-top:12px;"><button class="btn btn-primary" id="registerBtn">✅ DAFTARKAN</button><button class="btn btn-secondary" id="clearFormBtn">Reset</button></div></div>
       </div>
       <div>
-        <div class="card"><div class="card-title">📸 FOTO WAJAH</div><div class="camera-box"><video id="webcam" autoplay playsinline></video><img id="photoTaken" style="display:none"></div><canvas id="photoCanvas" style="display:none"></canvas><div style="display:flex;gap:10px;"><button class="btn btn-primary" id="captureBtn" onclick="takePhoto()">📸 Ambil Foto</button><button class="btn btn-secondary" id="retakeBtn" onclick="retakePhoto()" style="display:none;">🔄 Ulang</button><button class="btn btn-secondary" id="cameraRetry" onclick="initCamera()" style="display:none;">📷 Coba Kamera</button></div><div id="cameraStatus" style="font-size:12px;margin-top:8px;">⏳ Memulai kamera...</div></div>
-        <div class="card"><div class="card-title">☁️ STATUS CLOUD</div><div id="cloudStatus">🔌 Belum terhubung</div><button class="btn btn-secondary btn-sm" onclick="switchTab('settings')">Setup Firebase</button><div class="card-title" style="margin-top:12px;">💾 Database</div><div id="storageInfo"></div></div>
+        <div class="card"><div class="card-title">📸 FOTO WAJAH</div><div class="camera-box"><video id="webcam" autoplay playsinline></video><img id="photoTaken" style="display:none"></div><canvas id="photoCanvas" style="display:none"></canvas><div style="display:flex;gap:8px;"><button class="btn btn-primary" id="captureBtn">📸 Ambil Foto</button><button class="btn btn-secondary" id="retakeBtn" style="display:none;">🔄 Ulang</button><button class="btn btn-secondary" id="cameraRetryBtn" style="display:none;">📷 Coba Kamera</button></div><div id="cameraStatus" style="font-size:12px;margin-top:8px;">⏳ Memulai kamera...</div></div>
+        <div class="card"><div class="card-title">☁️ STATUS CLOUD</div><div id="cloudStatus">🔌 Belum terhubung</div><button class="btn btn-secondary btn-sm" id="gotoSettingsBtn">Setup Firebase</button><div class="card-title" style="margin-top:12px;">💾 Database</div><div id="storageInfo"></div></div>
         <div class="card"><div class="card-title">📊 Statistik Hari Ini</div><div id="quickStats"></div></div>
       </div>
     </div>
@@ -96,28 +96,27 @@
   <!-- DAFTAR TAMU -->
   <div class="tab-panel" id="tab-list">
     <div class="stats-grid" id="statsGrid"></div>
-    <div class="card"><div class="card-title">📋 SEMUA TAMU</div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;"><input type="text" id="search" placeholder="Cari..." oninput="filterList()" style="flex:1"><input type="date" id="filterDate" onchange="filterList()"><select id="filterStatus" onchange="filterList()"><option value="">Semua</option><option value="in">Masuk</option><option value="out">Keluar</option></select><button class="btn btn-secondary btn-sm" onclick="resetFilter()">Reset</button><button class="btn btn-secondary btn-sm" onclick="exportTodayCSV()">CSV Hari Ini</button><button class="btn btn-word btn-sm" onclick="exportTodayWord()">Word Hari Ini</button></div><div class="table-wrapper"><table id="visitorTable"><thead><tr><th>#</th><th>Foto</th><th>No.Visitor</th><th>NIK</th><th>Nama</th><th>HP</th><th>Keperluan</th><th>Tgl Masuk</th><th>Jam</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="visitorList"></tbody></table></div><div id="pagination" class="pagination"></div></div>
+    <div class="card"><div class="card-title">📋 SEMUA TAMU</div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;"><input type="text" id="search" placeholder="Cari..." style="flex:1"><input type="date" id="filterDateList"><select id="filterStatusList"><option value="">Semua</option><option value="in">Masuk</option><option value="out">Keluar</option></select><button class="btn btn-secondary btn-sm" id="resetFilterBtn">Reset</button><button class="btn btn-secondary btn-sm" id="exportCsvTodayBtn">CSV Hari Ini</button><button class="btn btn-word btn-sm" id="exportWordTodayBtn">Word Hari Ini</button></div><div class="table-wrapper"><table id="visitorTable"><thead><tr><th>#</th><th>Foto</th><th>No.Visitor</th><th>NIK</th><th>Nama</th><th>HP</th><th>Keperluan</th><th>Tgl Masuk</th><th>Jam</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="visitorList"></tbody></table></div><div id="pagination" class="pagination"></div></div>
   </div>
 
   <!-- LAPORAN -->
   <div class="tab-panel" id="tab-report">
-    <div class="card"><div class="card-title">📅 LAPORAN HARIAN</div><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><input type="date" id="reportDate"><button class="btn btn-primary" onclick="showDailyReport()">Tampilkan</button><button class="btn btn-word" onclick="exportDailyWord()">Export Word</button><button class="btn btn-secondary" onclick="exportDailyCSV()">Export CSV</button></div><div id="dailyReport"></div></div>
-    <div class="card"><div class="card-title">📈 LAPORAN BULANAN</div><div style="display:flex;gap:10px;flex-wrap:wrap;"><select id="month"></select><select id="year"></select><button class="btn btn-primary" onclick="showMonthlyReport()">Tampilkan</button><button class="btn btn-word" onclick="exportMonthlyWord()">Export Word</button><button class="btn btn-secondary" onclick="exportMonthlyCSV()">Export CSV</button></div><div id="monthlyReport"></div></div>
+    <div class="card"><div class="card-title">📅 LAPORAN HARIAN</div><div style="display:flex;gap:8px;flex-wrap:wrap;"><input type="date" id="reportDate"><button class="btn btn-primary" id="showDailyBtn">Tampilkan</button><button class="btn btn-word" id="exportDailyWordBtn">Export Word</button><button class="btn btn-secondary" id="exportDailyCsvBtn">Export CSV</button></div><div id="dailyReport"></div></div>
+    <div class="card"><div class="card-title">📈 LAPORAN BULANAN</div><div style="display:flex;gap:8px;flex-wrap:wrap;"><select id="month"></select><select id="year"></select><button class="btn btn-primary" id="showMonthlyBtn">Tampilkan</button><button class="btn btn-word" id="exportMonthlyWordBtn">Export Word</button><button class="btn btn-secondary" id="exportMonthlyCsvBtn">Export CSV</button></div><div id="monthlyReport"></div></div>
   </div>
 
   <!-- IMPORT CSV -->
   <div class="tab-panel" id="tab-import">
-    <div class="card"><div class="card-title">📂 IMPORT CSV</div><div class="csv-drop-area" onclick="document.getElementById('csvFile').click()" ondragover="event.preventDefault()" ondrop="handleCsvDrop(event)">📊 Klik atau drag & drop file CSV</div><input type="file" id="csvFile" accept=".csv" style="display:none"><div style="margin-top:10px;"><button class="btn btn-secondary" onclick="downloadTemplate()">⬇️ Download Template CSV</button><button class="btn btn-secondary" onclick="document.getElementById('jsonFile').click()">📂 Restore JSON</button><input type="file" id="jsonFile" accept=".json" style="display:none"></div><div id="csvPreview" style="display:none;margin-top:16px;"><div class="card-title">Preview (10 baris)</div><div class="table-wrapper"><table id="previewTable"><thead><tr id="previewHead"></tr></thead><tbody id="previewBody"></tbody></table></div><div id="csvSummary"></div><button class="btn btn-success" onclick="importCsv()">✅ Import</button><button class="btn btn-danger" onclick="cancelImport()">Batal</button></div></div>
+    <div class="card"><div class="card-title">📂 IMPORT CSV</div><div class="csv-drop-area" id="csvDropArea">📊 Klik atau drag & drop file CSV</div><input type="file" id="csvFile" accept=".csv" style="display:none"><div style="margin-top:10px;"><button class="btn btn-secondary" id="downloadTemplateBtn">⬇️ Download Template CSV</button><button class="btn btn-secondary" id="restoreJsonBtn">📂 Restore JSON Backup</button><input type="file" id="jsonFile" accept=".json" style="display:none"></div><div id="csvPreview" style="display:none;margin-top:16px;"><div class="card-title">Preview (10 baris)</div><div class="table-wrapper"><table id="previewTable"><thead><tr id="previewHead"></tr></thead><tbody id="previewBody"></tbody></table></div><div id="csvSummary"></div><button class="btn btn-success" id="importConfirmBtn">✅ Import</button><button class="btn btn-danger" id="importCancelBtn">Batal</button></div></div>
   </div>
 
   <!-- PENGATURAN -->
   <div class="tab-panel" id="tab-settings">
-    <div class="card"><div class="card-title">⚙️ PENGATURAN</div><label><input type="checkbox" id="autoCap"> Auto-capture foto setelah scan NIK</label><br><label><input type="checkbox" id="photoRequired"> Foto wajib</label><br><label><input type="checkbox" id="sound"> Suara notifikasi</label><br><label><input type="checkbox" id="scanMode"> Mode scanner (auto-focus)</label><br><button class="btn btn-primary" style="margin-top:12px;" onclick="saveSettings()">Simpan Pengaturan</button><hr style="margin:20px 0;"><div class="card-title">☁️ KONEKSI CLOUD (Firebase)</div><p style="margin-bottom:8px;">Tempelkan konfigurasi Firebase dari Firebase Console:</p><textarea id="firebaseConfig" rows="4" placeholder='{"apiKey":"xxx","authDomain":"xxx","projectId":"xxx","storageBucket":"xxx","messagingSenderId":"xxx","appId":"xxx"}' style="width:100%;font-family:monospace;"></textarea><button class="btn btn-success" id="connectFirebase">🔌 Hubungkan ke Firebase</button><button class="btn btn-secondary" id="offlineMode">📴 Gunakan Offline Saja</button><hr><button class="btn btn-secondary" onclick="backupData()">💾 Backup JSON</button><button class="btn btn-danger" onclick="clearAll()">⚠️ Hapus Semua Data</button><div id="dbInfo" style="margin-top:12px;font-size:12px;"></div></div>
+    <div class="card"><div class="card-title">⚙️ PENGATURAN</div><label><input type="checkbox" id="autoCap"> Auto-capture foto setelah scan NIK</label><br><label><input type="checkbox" id="photoRequired"> Foto wajib</label><br><label><input type="checkbox" id="sound"> Suara notifikasi</label><br><label><input type="checkbox" id="scanMode"> Mode scanner (auto-focus)</label><br><button class="btn btn-primary" id="saveSettingsBtn">Simpan Pengaturan</button><hr style="margin:15px 0;"><div class="card-title">☁️ KONEKSI CLOUD (Firebase)</div><p style="margin-bottom:8px;">Tempelkan konfigurasi Firebase (hanya JSON):</p><textarea id="firebaseConfig" rows="4" placeholder='{"apiKey":"xxx","authDomain":"xxx","projectId":"xxx"}' style="width:100%;font-family:monospace;"></textarea><button class="btn btn-success" id="connectFirebaseBtn">🔌 Hubungkan ke Firebase</button><button class="btn btn-secondary" id="offlineModeBtn">📴 Gunakan Offline Saja</button><hr><button class="btn btn-secondary" id="backupDataBtn">💾 Backup JSON</button><button class="btn btn-danger" id="clearAllDataBtn">⚠️ Hapus Semua Data</button><div id="dbInfo" style="margin-top:12px;font-size:12px;"></div></div>
   </div>
 </div>
 
 <div id="toastMsg" class="toast">✅ <span id="toastText"></span></div>
-<div id="modalOverlay" class="modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);z-index:1000;align-items:center;justify-content:center;"></div>
 
 <script>
 // ===================== INDEXEDDB =====================
@@ -127,42 +126,28 @@ let settings = { autoCap: false, photoRequired: false, sound: true, scanMode: tr
 let firestore = null, isCloud = false, unsub = null;
 let currentFiltered = [], currentPage = 1, pageSize = 12;
 let parsedCsv = null, csvHeaders = [];
+let cameraStream = null;
 
-// Open IndexedDB
-function openIDB() {
-  return new Promise((resolve, reject) => {
-    const req = indexedDB.open('etamu_v45', 1);
-    req.onupgradeneeded = e => {
-      const d = e.target.result;
-      if (!d.objectStoreNames.contains('visitors')) d.createObjectStore('visitors', { keyPath: 'id' });
-    };
-    req.onsuccess = e => resolve(e.target.result);
-    req.onerror = e => reject(e.target.error);
-  });
-}
+// Helper
+function showToast(msg) { const t = document.getElementById('toastMsg'); document.getElementById('toastText').innerText = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
+function playBeep() { if (settings.sound) try { const ctx = new AudioContext(); const o = ctx.createOscillator(); o.connect(ctx.destination); o.frequency.value = 880; o.start(); setTimeout(() => o.stop(), 100); } catch(e){} }
 
-async function loadData() {
-  if (!idb) return [];
-  return new Promise(r => {
-    const tx = idb.transaction('visitors', 'readonly');
-    const req = tx.objectStore('visitors').getAll();
-    req.onsuccess = () => r(req.result || []);
-  });
-}
-
-async function saveData() {
-  if (!idb) return;
-  const tx = idb.transaction('visitors', 'readwrite');
-  const store = tx.objectStore('visitors');
-  store.clear();
-  db.forEach(v => store.put(v));
-  return tx.complete;
-}
+// IndexedDB
+function openIDB() { return new Promise((resolve, reject) => { const req = indexedDB.open('etamu_v50', 1); req.onupgradeneeded = e => { const d = e.target.result; if (!d.objectStoreNames.contains('visitors')) d.createObjectStore('visitors', { keyPath: 'id' }); }; req.onsuccess = e => resolve(e.target.result); req.onerror = e => reject(e.target.error); }); }
+async function loadData() { if (!idb) return []; return new Promise(r => { const tx = idb.transaction('visitors', 'readonly'); const req = tx.objectStore('visitors').getAll(); req.onsuccess = () => r(req.result || []); }); }
+async function saveData() { if (!idb) return; const tx = idb.transaction('visitors', 'readwrite'); const store = tx.objectStore('visitors'); store.clear(); db.forEach(v => store.put(v)); return tx.complete; }
 
 // Firebase
 async function setupFirebase() {
-  const cfgText = document.getElementById('firebaseConfig').value.trim();
+  let cfgText = document.getElementById('firebaseConfig').value.trim();
   if (!cfgText) { showToast('Masukkan konfigurasi Firebase'); return; }
+  // Clean jika user copas dari kode lengkap
+  if (cfgText.includes('firebaseConfig')) {
+    try {
+      const match = cfgText.match(/\{[\s\S]*\}/);
+      if (match) cfgText = match[0];
+    } catch(e) {}
+  }
   try {
     const cfg = JSON.parse(cfgText);
     if (!cfg.apiKey || !cfg.projectId) throw new Error('Config tidak lengkap');
@@ -178,40 +163,9 @@ async function setupFirebase() {
     document.getElementById('cloudStatus').innerHTML = '☁️ Cloud aktif (Firestore)';
   } catch(e) { showToast('Gagal: ' + e.message); }
 }
-
-async function syncFromCloud() {
-  if (!firestore) return;
-  const snap = await firestore.collection('visitors').get();
-  const cloudData = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-  if (cloudData.length) {
-    db = cloudData;
-    await saveData();
-    refreshUI();
-  } else if (db.length) {
-    for (let v of db) await firestore.collection('visitors').doc(v.id).set(v);
-  }
-}
-
-function startListener() {
-  if (!firestore) return;
-  unsub = firestore.collection('visitors').onSnapshot(snap => {
-    const newData = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-    db = newData;
-    saveData().then(() => refreshUI());
-  });
-}
-
-function offlineMode() {
-  if (unsub) unsub();
-  isCloud = false; firestore = null;
-  localStorage.removeItem('firebase_config');
-  document.getElementById('cloudStatus').innerHTML = '🔴 Mode offline (lokal)';
-  showToast('Mode offline aktif');
-}
-
-// Helper
-function showToast(msg) { const t = document.getElementById('toastMsg'); document.getElementById('toastText').innerText = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
-function playBeep() { if (settings.sound) try { const ctx = new AudioContext(); const o = ctx.createOscillator(); o.connect(ctx.destination); o.frequency.value = 880; o.start(); setTimeout(() => o.stop(), 100); } catch(e){} }
+async function syncFromCloud() { if (!firestore) return; const snap = await firestore.collection('visitors').get(); const cloudData = snap.docs.map(d => ({ id: d.id, ...d.data() })); if (cloudData.length) { db = cloudData; await saveData(); refreshUI(); } else if (db.length) { for (let v of db) await firestore.collection('visitors').doc(v.id).set(v); } }
+function startListener() { if (!firestore) return; unsub = firestore.collection('visitors').onSnapshot(snap => { const newData = snap.docs.map(d => ({ id: d.id, ...d.data() })); db = newData; saveData().then(() => refreshUI()); }); }
+function offlineMode() { if (unsub) unsub(); isCloud = false; firestore = null; localStorage.removeItem('firebase_config'); document.getElementById('cloudStatus').innerHTML = '🔴 Mode offline (lokal)'; showToast('Mode offline aktif'); }
 
 // Registrasi
 async function register() {
@@ -219,9 +173,8 @@ async function register() {
   const nama = document.getElementById('nama').value.trim();
   const hp = document.getElementById('hp').value.trim();
   const keperluan = document.getElementById('keperluan').value;
-  if (!nama || !hp) { showToast('Nama dan HP wajib'); return; }
+  if (!nama || !hp) { showToast('Isi nama dan HP'); return; }
   if (settings.photoRequired && !capturedPhoto) { showToast('Foto wajah harus diambil'); return; }
-  if (nik && nik.length !== 16) { showToast('NIK harus 16 digit'); return; }
   const now = new Date();
   const visitorNo = document.getElementById('visitorNo').value.trim().toUpperCase();
   const visitor = {
@@ -251,7 +204,6 @@ async function register() {
   showToast(`✅ ${nama} terdaftar`);
   playBeep();
 }
-
 function clearForm() {
   ['nik','nama','hp','alamat','instansi','tempatLahir','tglLahir','catatan','visitorNo','visitorNoDisplay'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
   document.getElementById('nikStatus').innerHTML = '';
@@ -259,7 +211,6 @@ function clearForm() {
   retakePhoto();
   if (settings.scanMode) document.getElementById('visitorNo').focus();
 }
-
 function validateNik(val) {
   val = val.replace(/\D/g, '');
   document.getElementById('nik').value = val;
@@ -285,23 +236,15 @@ function validateNik(val) {
     status.style.color = '#E74C3C';
   } else status.innerHTML = '';
 }
-
-function onVisitorNumberInput(val) {
-  val = val.trim().toUpperCase();
-  document.getElementById('visitorNoDisplay').value = val;
-  document.getElementById('visitorNoStatus').innerHTML = val ? `✅ No. Visitor: ${val}` : '';
-  if (val) playBeep();
-}
-
+function onVisitorNumberInput(val) { val = val.trim().toUpperCase(); document.getElementById('visitorNoDisplay').value = val; document.getElementById('visitorNoStatus').innerHTML = val ? `✅ No. Visitor: ${val}` : ''; if (val) playBeep(); }
 function demoScan() { const rand = 'VIS' + Math.floor(Math.random() * 1000); document.getElementById('visitorNo').value = rand; onVisitorNumberInput(rand); }
 function clearVisitorNo() { document.getElementById('visitorNo').value = ''; document.getElementById('visitorNoDisplay').value = ''; document.getElementById('visitorNoStatus').innerHTML = ''; }
 
 // Kamera
-let cameraStream = null;
 async function initCamera() {
   const video = document.getElementById('webcam');
   const statusDiv = document.getElementById('cameraStatus');
-  const retryBtn = document.getElementById('cameraRetry');
+  const retryBtn = document.getElementById('cameraRetryBtn');
   try {
     if (cameraStream) cameraStream.getTracks().forEach(t => t.stop());
     statusDiv.innerHTML = '⏳ Meminta izin kamera...';
@@ -326,7 +269,6 @@ async function initCamera() {
     document.getElementById('captureBtn').disabled = true;
   }
 }
-
 function takePhoto() {
   const video = document.getElementById('webcam');
   if (!cameraStream || !cameraStream.active) { showToast('Kamera belum aktif. Klik "Coba Kamera"'); return; }
@@ -344,7 +286,6 @@ function takePhoto() {
   showToast('Foto diambil');
   playBeep();
 }
-
 function retakePhoto() {
   capturedPhoto = null;
   document.getElementById('photoTaken').style.display = 'none';
@@ -357,8 +298,8 @@ function retakePhoto() {
 // Daftar tamu
 function filterList() {
   const search = document.getElementById('search').value.toLowerCase();
-  const date = document.getElementById('filterDate').value;
-  const status = document.getElementById('filterStatus').value;
+  const date = document.getElementById('filterDateList').value;
+  const status = document.getElementById('filterStatusList').value;
   currentFiltered = db.filter(v => 
     (v.nama.toLowerCase().includes(search) || v.nik.includes(search) || (v.visitorNo||'').toLowerCase().includes(search)) &&
     (!date || v.dateKey === date) &&
@@ -367,7 +308,6 @@ function filterList() {
   currentPage = 1;
   renderList();
 }
-
 function renderList() {
   const tbody = document.getElementById('visitorList');
   if (!tbody) return;
@@ -387,16 +327,14 @@ function renderList() {
       <td>${v.jamMasuk}</td>
       <td><span class="${v.status==='in'?'badge-in':'badge-out'}">${v.status==='in'?'Dalam':'Keluar'}</span></td>
       <td><button class="btn btn-sm btn-secondary" onclick="showDetail('${v.id}')">Detail</button> ${v.status==='in' ? `<button class="btn btn-sm btn-success" onclick="checkout('${v.id}')">Keluar</button>` : ''} <button class="btn btn-sm btn-danger" onclick="deleteVisitor('${v.id}')">Hapus</button></td>
-    </tr>
+    <table>
   `).join('');
   const totalPages = Math.ceil(currentFiltered.length / pageSize);
   let pagHtml = '';
   for (let i = 1; i <= totalPages; i++) pagHtml += `<button class="page-btn ${currentPage===i?'active':''}" onclick="currentPage=${i};renderList()">${i}</button>`;
   document.getElementById('pagination').innerHTML = pagHtml;
 }
-
-function resetFilter() { document.getElementById('search').value = ''; document.getElementById('filterDate').value = ''; document.getElementById('filterStatus').value = ''; filterList(); }
-
+function resetFilter() { document.getElementById('search').value = ''; document.getElementById('filterDateList').value = ''; document.getElementById('filterStatusList').value = ''; filterList(); }
 async function checkout(id) {
   const v = db.find(x => x.id === id);
   if (v && v.status === 'in') {
@@ -409,7 +347,6 @@ async function checkout(id) {
     showToast(`${v.nama} checkout`);
   }
 }
-
 async function deleteVisitor(id) {
   if (confirm('Hapus data ini?')) {
     db = db.filter(x => x.id !== id);
@@ -420,27 +357,13 @@ async function deleteVisitor(id) {
     showToast('Data dihapus');
   }
 }
-
-function showDetail(id) {
+window.showDetail = function(id) {
   const v = db.find(x => x.id === id);
   if (!v) return;
-  const modal = document.getElementById('modalOverlay');
-  modal.style.display = 'flex';
-  modal.innerHTML = `<div style="background:var(--navy-mid);border:1px solid var(--gold);border-radius:16px;padding:20px;max-width:500px;margin:auto;">
-    <div style="text-align:center">${v.photo ? `<img src="${v.photo}" style="width:80px;height:80px;border-radius:50%">` : '👤'}</div>
-    <div><strong>No. Visitor:</strong> ${v.visitorNo||'-'}</div>
-    <div><strong>Nama:</strong> ${v.nama}</div>
-    <div><strong>NIK:</strong> ${v.nik||'-'}</div>
-    <div><strong>HP:</strong> ${v.hp}</div>
-    <div><strong>Keperluan:</strong> ${v.keperluan}</div>
-    <div><strong>Jam Masuk:</strong> ${v.jamMasuk}</div>
-    <div><strong>Jam Keluar:</strong> ${v.jamKeluar||'-'}</div>
-    <div><strong>Status:</strong> ${v.status==='in'?'Dalam':'Keluar'}</div>
-    <div style="margin-top:12px;"><button class="btn btn-secondary" onclick="this.closest('#modalOverlay').style.display='none'">Tutup</button></div>
-  </div>`;
-  modal.querySelector('div').addEventListener('click', e => e.stopPropagation());
-  modal.onclick = () => modal.style.display = 'none';
-}
+  alert(`No.Visitor: ${v.visitorNo||'-'}\nNama: ${v.nama}\nNIK: ${v.nik||'-'}\nHP: ${v.hp}\nKeperluan: ${v.keperluan}\nJam Masuk: ${v.jamMasuk}\nJam Keluar: ${v.jamKeluar||'-'}\nStatus: ${v.status==='in'?'Dalam':'Keluar'}`);
+};
+window.checkout = checkout;
+window.deleteVisitor = deleteVisitor;
 
 // Statistik & UI
 function refreshUI() {
@@ -449,7 +372,6 @@ function refreshUI() {
   updateStorageInfo();
   if (document.getElementById('tab-report').classList.contains('active')) { showDailyReport(); showMonthlyReport(); }
 }
-
 function updateStats() {
   const today = new Date().toISOString().slice(0,10);
   const todayV = db.filter(v => v.dateKey === today);
@@ -462,7 +384,6 @@ function updateStats() {
   `;
   document.getElementById('quickStats').innerHTML = `Hari ini: ${todayV.length} tamu | Dalam: ${todayV.filter(v=>v.status==='in').length}`;
 }
-
 function updateStorageInfo() {
   const size = JSON.stringify(db.map(({photo,...r})=>r)).length;
   document.getElementById('storageInfo').innerHTML = `📀 IndexedDB: ${db.length} record<br>📦 ${(size/1024).toFixed(1)} KB`;
@@ -474,109 +395,29 @@ function showDailyReport() {
   let date = document.getElementById('reportDate').value;
   if (!date) date = new Date().toISOString().slice(0,10);
   const data = db.filter(v => v.dateKey === date);
-  document.getElementById('dailyReport').innerHTML = `
-    <div style="margin-top:16px;"><strong>📅 ${date} — Total: ${data.length} tamu</strong></div>
-    <div class="table-wrapper"><table><thead><tr><th>Nama</th><th>NIK</th><th>Keperluan</th><th>Jam Masuk</th><th>Jam Keluar</th></tr></thead><tbody>${data.map(v => `<tr><td>${v.nama}</td><td>${v.nik||'-'}</td><td>${v.keperluan}</td><td>${v.jamMasuk}</td><td>${v.jamKeluar||'-'}</td></tr>`).join('')}</tbody></table></div>
-  `;
+  document.getElementById('dailyReport').innerHTML = `<div style="margin-top:12px;"><strong>📅 ${date} — Total: ${data.length} tamu</strong></div><div class="table-wrapper"><table><thead><tr><th>Nama</th><th>NIK</th><th>Keperluan</th><th>Jam Masuk</th><th>Jam Keluar</th></tr></thead><tbody>${data.map(v => `<tr><td>${v.nama}</td><td>${v.nik||'-'}</td><td>${v.keperluan}</td><td>${v.jamMasuk}</td><td>${v.jamKeluar||'-'}</td></tr>`).join('')}</tbody></table></div>`;
 }
-
 function showMonthlyReport() {
   const month = parseInt(document.getElementById('month').value);
   const year = parseInt(document.getElementById('year').value);
   const data = db.filter(v => { const d = new Date(v.timestamp); return d.getMonth() === month && d.getFullYear() === year; });
-  document.getElementById('monthlyReport').innerHTML = `<div style="margin-top:16px;"><strong>📆 ${['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des'][month]} ${year} — ${data.length} tamu</strong></div><div class="table-wrapper"><table><thead><tr><th>Tanggal</th><th>Nama</th><th>Keperluan</th></tr></thead><tbody>${data.map(v => `<tr><td>${v.tanggal}</td><td>${v.nama}</td><td>${v.keperluan}</td></tr>`).join('')}</tbody></table></div>`;
+  document.getElementById('monthlyReport').innerHTML = `<div style="margin-top:12px;"><strong>📆 ${['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des'][month]} ${year} — ${data.length} tamu</strong></div><div class="table-wrapper"><table><thead><tr><th>Tanggal</th><th>Nama</th><th>Keperluan</th></tr></thead><tbody>${data.map(v => `<tr><td>${v.tanggal}</td><td>${v.nama}</td><td>${v.keperluan}</td></tr>`).join('')}</tbody></table></div>`;
 }
-
 function exportTodayCSV() { exportCSV(db.filter(v=>v.dateKey===new Date().toISOString().slice(0,10)), 'tamu_hari_ini'); }
 function exportTodayWord() { generateWordReport(db.filter(v=>v.dateKey===new Date().toISOString().slice(0,10)), 'Laporan Hari Ini'); }
 function exportDailyCSV() { const date = document.getElementById('reportDate').value; if(date) exportCSV(db.filter(v=>v.dateKey===date), `laporan_${date}`); }
 function exportDailyWord() { const date = document.getElementById('reportDate').value; if(date) generateWordReport(db.filter(v=>v.dateKey===date), `Laporan Harian ${date}`); }
 function exportMonthlyCSV() { const month = parseInt(document.getElementById('month').value); const year = parseInt(document.getElementById('year').value); exportCSV(db.filter(v=>{const d=new Date(v.timestamp); return d.getMonth()===month && d.getFullYear()===year;}), `laporan_${year}_${month+1}`); }
 function exportMonthlyWord() { const month = parseInt(document.getElementById('month').value); const year = parseInt(document.getElementById('year').value); generateWordReport(db.filter(v=>{const d=new Date(v.timestamp); return d.getMonth()===month && d.getFullYear()===year;}), `Laporan Bulanan ${['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des'][month]} ${year}`); }
-
-function exportCSV(arr, name) {
-  if (!arr.length) { showToast('Tidak ada data'); return; }
-  const headers = ['No','No.Visitor','Nama','NIK','HP','Keperluan','Tanggal','Jam Masuk','Jam Keluar','Status'];
-  const rows = arr.map((v,i) => [i+1, v.visitorNo||'', v.nama, v.nik||'', v.hp, v.keperluan, v.tanggal, v.jamMasuk, v.jamKeluar||'-', v.status==='in'?'Dalam':'Keluar']);
-  const csv = [headers,...rows].map(r=>r.map(c=>'"'+String(c||'').replace(/"/g,'""')+'"').join(',')).join('\n');
-  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv'});
-  const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`${name}.csv`; a.click();
-  showToast(`CSV ${arr.length} record`);
-}
-
-async function generateWordReport(data, judul) {
-  if (!data.length) { showToast('Tidak ada data'); return; }
-  showToast('⏳ Membuat Word...');
-  try {
-    const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, AlignmentType } = docx;
-    const rows = data.map(v => new TableRow({ children: [new TableCell({ children: [new Paragraph(v.nama)] }), new TableCell({ children: [new Paragraph(v.jamMasuk)] })] }));
-    const doc = new Document({ sections: [{ children: [
-      new Paragraph({ children: [new TextRun({ text: judul, bold: true, size: 32 })], alignment: AlignmentType.CENTER }),
-      new Table({ rows: [new TableRow({ children: [new TableCell({ children: [new Paragraph('Nama')] }), new TableCell({ children: [new Paragraph('Jam Masuk')] })] }), ...rows] })
-    ] }] });
-    const blob = await Packer.toBlob(doc);
-    saveAs(blob, `${judul}.docx`);
-    showToast('Word siap');
-  } catch(e) { showToast('Gagal Word: ' + e.message); }
-}
+function exportCSV(arr, name) { if (!arr.length) { showToast('Tidak ada data'); return; } const headers = ['No','No.Visitor','Nama','NIK','HP','Keperluan','Tanggal','Jam Masuk','Jam Keluar','Status']; const rows = arr.map((v,i) => [i+1, v.visitorNo||'', v.nama, v.nik||'', v.hp, v.keperluan, v.tanggal, v.jamMasuk, v.jamKeluar||'-', v.status==='in'?'Dalam':'Keluar']); const csv = [headers,...rows].map(r=>r.map(c=>'"'+String(c||'').replace(/"/g,'""')+'"').join(',')).join('\n'); const blob = new Blob(['\uFEFF'+csv], {type:'text/csv'}); const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`${name}.csv`; a.click(); showToast(`CSV ${arr.length} record`); }
+async function generateWordReport(data, judul) { if (!data.length) { showToast('Tidak ada data'); return; } showToast('⏳ Membuat Word...'); try { const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, AlignmentType } = docx; const rows = data.map(v => new TableRow({ children: [new TableCell({ children: [new Paragraph(v.nama)] }), new TableCell({ children: [new Paragraph(v.jamMasuk)] })] })); const doc = new Document({ sections: [{ children: [ new Paragraph({ children: [new TextRun({ text: judul, bold: true, size: 32 })], alignment: AlignmentType.CENTER }), new Table({ rows: [new TableRow({ children: [new TableCell({ children: [new Paragraph('Nama')] }), new TableCell({ children: [new Paragraph('Jam Masuk')] })] }), ...rows] }) ] }] }); const blob = await Packer.toBlob(doc); saveAs(blob, `${judul}.docx`); showToast('Word siap'); } catch(e) { showToast('Gagal Word: ' + e.message); } }
 
 // Import CSV
 function handleCsvDrop(e) { e.preventDefault(); const file = e.dataTransfer.files[0]; if (file) processCsv(file); }
-function downloadTemplate() {
-  const headers = ['Nama','NIK','HP','VisitorNo','Keperluan','Bagian','Gender','Alamat','Instansi'];
-  const csv = [headers, ['Budi Santoso','3171010101010001','08123456789','VIS001','Sidang','Panitera','Laki-laki','Jl. Ampera','PT Maju']].map(r=>r.map(c=>'"'+c+'"').join(',')).join('\n');
-  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv'});
-  const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='template_tamu.csv'; a.click();
-}
+function downloadTemplate() { const headers = ['Nama','NIK','HP','VisitorNo','Keperluan','Bagian','Gender','Alamat','Instansi']; const csv = [headers, ['Budi Santoso','3171010101010001','08123456789','VIS001','Sidang','Panitera','Laki-laki','Jl. Ampera','PT Maju']].map(r=>r.map(c=>'"'+c+'"').join(',')).join('\n'); const blob = new Blob(['\uFEFF'+csv], {type:'text/csv'}); const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='template_tamu.csv'; a.click(); }
 function processCsv(file) { const reader = new FileReader(); reader.onload = e => parseCsv(e.target.result); reader.readAsText(file, 'UTF-8'); }
-function parseCsv(text) {
-  if (text.charCodeAt(0)===0xFEFF) text = text.slice(1);
-  const lines = text.split('\n').filter(l=>l.trim());
-  if (lines.length<2) return;
-  csvHeaders = lines[0].split(',').map(h=>h.replace(/"/g,'').trim());
-  parsedCsv = lines.slice(1).map(l => { const vals = l.split(',').map(v=>v.replace(/"/g,'').trim()); const obj={}; csvHeaders.forEach((h,i)=>obj[h]=vals[i]||''); return obj; });
-  document.getElementById('previewHead').innerHTML = csvHeaders.map(h=>`<th>${h}</th>`).join('');
-  document.getElementById('previewBody').innerHTML = parsedCsv.slice(0,10).map(row => `<tr>${csvHeaders.map(h=>`<td>${row[h]||''}</td>`).join('')}</tr>`).join('');
-  document.getElementById('csvSummary').innerHTML = `✅ ${parsedCsv.length} baris data`;
-  document.getElementById('csvPreview').style.display = 'block';
-}
-async function importCsv() {
-  if (!parsedCsv) return;
-  let imported = 0;
-  for (let row of parsedCsv) {
-    const nama = row.Nama || row.nama || '';
-    const hp = row.HP || row.hp || '';
-    if (!nama || !hp) continue;
-    const dup = db.some(v => v.nama === nama && v.dateKey === new Date().toISOString().slice(0,10));
-    if (dup) continue;
-    const now = new Date();
-    const visitor = {
-      id: Date.now()+''+Math.random().toString(36).substr(2,6),
-      visitorNo: row.VisitorNo || row.visitorNo || '',
-      nik: row.NIK || row.nik || '',
-      nama, hp,
-      keperluan: row.Keperluan || row.keperluan || 'Lainnya',
-      bagian: row.Bagian || row.bagian || '',
-      gender: row.Gender || row.gender || 'Laki-laki',
-      alamat: row.Alamat || row.alamat || '',
-      instansi: row.Instansi || row.instansi || '',
-      timestamp: now.getTime(),
-      tanggal: now.toLocaleDateString('id-ID'),
-      jamMasuk: now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}),
-      jamKeluar: null,
-      status: 'in',
-      dateKey: now.toISOString().slice(0,10),
-      photo: null
-    };
-    db.push(visitor);
-    imported++;
-  }
-  await saveData();
-  if (isCloud && firestore) for (let v of db.slice(-imported)) await firestore.collection('visitors').doc(v.id).set(v);
-  refreshUI();
-  showToast(`Import ${imported} data`);
-  cancelImport();
-}
+function parseCsv(text) { if (text.charCodeAt(0)===0xFEFF) text = text.slice(1); const lines = text.split('\n').filter(l=>l.trim()); if (lines.length<2) return; csvHeaders = lines[0].split(',').map(h=>h.replace(/"/g,'').trim()); parsedCsv = lines.slice(1).map(l => { const vals = l.split(',').map(v=>v.replace(/"/g,'').trim()); const obj={}; csvHeaders.forEach((h,i)=>obj[h]=vals[i]||''); return obj; }); document.getElementById('previewHead').innerHTML = csvHeaders.map(h=>`<th>${h}</th>`).join(''); document.getElementById('previewBody').innerHTML = parsedCsv.slice(0,10).map(row => `<tr>${csvHeaders.map(h=>`<td>${row[h]||''}</td>`).join('')}</tr>`).join(''); document.getElementById('csvSummary').innerHTML = `✅ ${parsedCsv.length} baris data`; document.getElementById('csvPreview').style.display = 'block'; }
+async function importCsv() { if (!parsedCsv) return; let imported = 0; for (let row of parsedCsv) { const nama = row.Nama || row.nama || ''; const hp = row.HP || row.hp || ''; if (!nama || !hp) continue; const dup = db.some(v => v.nama === nama && v.dateKey === new Date().toISOString().slice(0,10)); if (dup) continue; const now = new Date(); const visitor = { id: Date.now()+''+Math.random().toString(36).substr(2,6), visitorNo: row.VisitorNo || row.visitorNo || '', nik: row.NIK || row.nik || '', nama, hp, keperluan: row.Keperluan || row.keperluan || 'Lainnya', bagian: row.Bagian || row.bagian || '', gender: row.Gender || row.gender || 'Laki-laki', alamat: row.Alamat || row.alamat || '', instansi: row.Instansi || row.instansi || '', timestamp: now.getTime(), tanggal: now.toLocaleDateString('id-ID'), jamMasuk: now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}), jamKeluar: null, status: 'in', dateKey: now.toISOString().slice(0,10), photo: null }; db.push(visitor); imported++; } await saveData(); if (isCloud && firestore) for (let v of db.slice(-imported)) await firestore.collection('visitors').doc(v.id).set(v); refreshUI(); showToast(`Import ${imported} data`); cancelImport(); }
 function cancelImport() { parsedCsv=null; document.getElementById('csvPreview').style.display='none'; }
 async function backupData() { const blob = new Blob([JSON.stringify(db,null,2)], {type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`backup_etamu_${Date.now()}.json`; a.click(); showToast('Backup JSON'); }
 async function clearAll() { if (confirm('HAPUS SEMUA DATA? PERMANEN!')) { db = []; await saveData(); if (isCloud && firestore) { const snap = await firestore.collection('visitors').get(); for (let d of snap.docs) await d.ref.delete(); } refreshUI(); showToast('Semua data dihapus'); } }
@@ -596,24 +437,16 @@ async function runOcr(imgData) {
     document.getElementById('ocrResult').innerHTML = `<div>NIK: ${nik || '❌'}</div><div>Nama: ${nama || '-'}</div><button class="btn btn-sm btn-success" onclick="applyOcr('${nik}','${nama.replace(/'/g,"\\'")}')">Terapkan ke Form</button>`;
   } catch(e) { document.getElementById('ocrResult').innerHTML = 'OCR gagal'; }
 }
-function applyOcr(nik, nama) { if(nik) document.getElementById('nik').value = nik; if(nama) document.getElementById('nama').value = nama; validateNik(nik); document.getElementById('ocrResult').style.display = 'none'; document.getElementById('ocrPreview').style.display = 'none'; showToast('Data OCR diterapkan'); }
+window.applyOcr = function(nik, nama) { if(nik) document.getElementById('nik').value = nik; if(nama) document.getElementById('nama').value = nama; validateNik(nik); document.getElementById('ocrResult').style.display = 'none'; document.getElementById('ocrPreview').style.display = 'none'; showToast('Data OCR diterapkan'); };
 function handleKtpFile(e) { const file = e.target.files[0]; if(file) { const reader = new FileReader(); reader.onload = ev => { document.getElementById('ocrImg').src = ev.target.result; document.getElementById('ocrPreview').style.display = 'block'; runOcr(ev.target.result); }; reader.readAsDataURL(file); } }
 function handleKtpDrop(e) { e.preventDefault(); const file = e.dataTransfer.files[0]; if(file && file.type.startsWith('image/')) { const reader = new FileReader(); reader.onload = ev => { document.getElementById('ocrImg').src = ev.target.result; document.getElementById('ocrPreview').style.display = 'block'; runOcr(ev.target.result); }; reader.readAsDataURL(file); } }
-async function openOcrCamera() { const modal = document.createElement('div'); modal.className = 'modal-overlay'; modal.style.display = 'flex'; modal.innerHTML = `<div style="background:var(--navy-mid);border:1px solid var(--gold);border-radius:16px;padding:20px;max-width:400px;"><video id="ocrCam" autoplay playsinline style="width:100%"></video><canvas id="ocrCanvas" style="display:none"></canvas><div style="margin-top:12px;"><button class="btn btn-primary" id="ocrCapture">Ambil & OCR</button><button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">Batal</button></div></div>`; document.body.appendChild(modal); try { const stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}}); const video = document.getElementById('ocrCam'); video.srcObject = stream; document.getElementById('ocrCapture').onclick = () => { const canvas = document.getElementById('ocrCanvas'); canvas.width = video.videoWidth; canvas.height = video.videoHeight; canvas.getContext('2d').drawImage(video,0,0); const img = canvas.toDataURL('image/jpeg'); stream.getTracks().forEach(t=>t.stop()); modal.remove(); document.getElementById('ocrImg').src = img; document.getElementById('ocrPreview').style.display = 'block'; runOcr(img); }; } catch(e) { showToast('Gagal kamera'); modal.remove(); } }
+async function openOcrCamera() { const modal = document.createElement('div'); modal.style.position = 'fixed'; modal.style.inset = '0'; modal.style.background = 'rgba(0,0,0,0.8)'; modal.style.display = 'flex'; modal.style.alignItems = 'center'; modal.style.justifyContent = 'center'; modal.style.zIndex = '2000'; modal.innerHTML = `<div style="background:#112240;border:1px solid #C9A84C;border-radius:16px;padding:20px;max-width:400px;"><video id="ocrCam" autoplay playsinline style="width:100%"></video><canvas id="ocrCanvas" style="display:none"></canvas><div style="margin-top:12px;"><button class="btn btn-primary" id="ocrCaptureBtn">Ambil & OCR</button><button class="btn btn-secondary" id="closeOcrModal">Batal</button></div></div>`; document.body.appendChild(modal); try { const stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}}); const video = document.getElementById('ocrCam'); video.srcObject = stream; document.getElementById('ocrCaptureBtn').onclick = () => { const canvas = document.getElementById('ocrCanvas'); canvas.width = video.videoWidth; canvas.height = video.videoHeight; canvas.getContext('2d').drawImage(video,0,0); const img = canvas.toDataURL('image/jpeg'); stream.getTracks().forEach(t=>t.stop()); modal.remove(); document.getElementById('ocrImg').src = img; document.getElementById('ocrPreview').style.display = 'block'; runOcr(img); }; document.getElementById('closeOcrModal').onclick = () => { stream.getTracks().forEach(t=>t.stop()); modal.remove(); }; } catch(e) { showToast('Gagal kamera'); modal.remove(); } }
 
 // Pengaturan
-function saveSettings() {
-  settings.autoCap = document.getElementById('autoCap').checked;
-  settings.photoRequired = document.getElementById('photoRequired').checked;
-  settings.sound = document.getElementById('sound').checked;
-  settings.scanMode = document.getElementById('scanMode').checked;
-  localStorage.setItem('etamu_settings', JSON.stringify(settings));
-  showToast('Pengaturan disimpan');
-  if (settings.scanMode) document.getElementById('visitorNo').focus();
-}
+function saveSettings() { settings.autoCap = document.getElementById('autoCap').checked; settings.photoRequired = document.getElementById('photoRequired').checked; settings.sound = document.getElementById('sound').checked; settings.scanMode = document.getElementById('scanMode').checked; localStorage.setItem('etamu_settings', JSON.stringify(settings)); showToast('Pengaturan disimpan'); if (settings.scanMode) document.getElementById('visitorNo').focus(); }
 function loadSettings() { try { const s = localStorage.getItem('etamu_settings'); if (s) Object.assign(settings, JSON.parse(s)); } catch(e){} document.getElementById('autoCap').checked = settings.autoCap; document.getElementById('photoRequired').checked = settings.photoRequired; document.getElementById('sound').checked = settings.sound; document.getElementById('scanMode').checked = settings.scanMode; }
 
-// Tab switching
+// Tab switching (global)
 function switchTab(tab) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -624,6 +457,7 @@ function switchTab(tab) {
   if (tab === 'settings') { loadSettings(); const savedCfg = localStorage.getItem('firebase_config'); if(savedCfg) document.getElementById('firebaseConfig').value = savedCfg; updateStorageInfo(); }
   if (tab === 'register' && settings.scanMode) document.getElementById('visitorNo').focus();
 }
+window.switchTab = switchTab;
 
 // Inisialisasi
 async function init() {
@@ -640,18 +474,56 @@ async function init() {
   const y = new Date().getFullYear();
   for (let i=y-2;i<=y;i++) yearSel.innerHTML += `<option value="${i}" ${i===y?'selected':''}>${i}</option>`;
   document.getElementById('reportDate').value = new Date().toISOString().slice(0,10);
+  // Event listeners
   document.getElementById('visitorNo').addEventListener('input', e => onVisitorNumberInput(e.target.value));
-  document.getElementById('ktpFile').addEventListener('change', handleKtpFile);
+  document.getElementById('demoScanBtn').addEventListener('click', demoScan);
+  document.getElementById('clearVisitorBtn').addEventListener('click', clearVisitorNo);
+  document.getElementById('registerBtn').addEventListener('click', register);
+  document.getElementById('clearFormBtn').addEventListener('click', clearForm);
+  document.getElementById('captureBtn').addEventListener('click', takePhoto);
+  document.getElementById('retakeBtn').addEventListener('click', retakePhoto);
+  document.getElementById('cameraRetryBtn').addEventListener('click', initCamera);
+  document.getElementById('gotoSettingsBtn').addEventListener('click', () => switchTab('settings'));
+  document.getElementById('search').addEventListener('input', filterList);
+  document.getElementById('filterDateList').addEventListener('change', filterList);
+  document.getElementById('filterStatusList').addEventListener('change', filterList);
+  document.getElementById('resetFilterBtn').addEventListener('click', resetFilter);
+  document.getElementById('exportCsvTodayBtn').addEventListener('click', exportTodayCSV);
+  document.getElementById('exportWordTodayBtn').addEventListener('click', exportTodayWord);
+  document.getElementById('showDailyBtn').addEventListener('click', showDailyReport);
+  document.getElementById('exportDailyWordBtn').addEventListener('click', exportDailyWord);
+  document.getElementById('exportDailyCsvBtn').addEventListener('click', exportDailyCSV);
+  document.getElementById('showMonthlyBtn').addEventListener('click', showMonthlyReport);
+  document.getElementById('exportMonthlyWordBtn').addEventListener('click', exportMonthlyWord);
+  document.getElementById('exportMonthlyCsvBtn').addEventListener('click', exportMonthlyCSV);
+  document.getElementById('csvDropArea').addEventListener('click', () => document.getElementById('csvFile').click());
   document.getElementById('csvFile').addEventListener('change', e => { if(e.target.files[0]) processCsv(e.target.files[0]); });
-  document.getElementById('connectFirebase').addEventListener('click', setupFirebase);
-  document.getElementById('offlineMode').addEventListener('click', offlineMode);
-  document.getElementById('cameraRetry').addEventListener('click', initCamera);
+  document.getElementById('downloadTemplateBtn').addEventListener('click', downloadTemplate);
+  document.getElementById('restoreJsonBtn').addEventListener('click', () => document.getElementById('jsonFile').click());
+  document.getElementById('jsonFile').addEventListener('change', async (e) => { if(e.target.files[0]) { const text = await e.target.files[0].text(); try { const imported = JSON.parse(text); if(Array.isArray(imported)) { db = imported; await saveData(); refreshUI(); showToast('Restore berhasil'); } } catch(e) { showToast('File tidak valid'); } } });
+  document.getElementById('importConfirmBtn').addEventListener('click', importCsv);
+  document.getElementById('importCancelBtn').addEventListener('click', cancelImport);
+  document.getElementById('saveSettingsBtn').addEventListener('click', saveSettings);
+  document.getElementById('connectFirebaseBtn').addEventListener('click', setupFirebase);
+  document.getElementById('offlineModeBtn').addEventListener('click', offlineMode);
+  document.getElementById('backupDataBtn').addEventListener('click', backupData);
+  document.getElementById('clearAllDataBtn').addEventListener('click', clearAll);
+  document.getElementById('ocrDropArea').addEventListener('click', () => document.getElementById('ktpFile').click());
+  document.getElementById('ktpFile').addEventListener('change', handleKtpFile);
+  document.getElementById('ocrCameraBtn').addEventListener('click', openOcrCamera);
+  // Drag & drop KTP
+  const ocrDrop = document.getElementById('ocrDropArea');
+  ocrDrop.addEventListener('dragover', e => e.preventDefault());
+  ocrDrop.addEventListener('drop', handleKtpDrop);
+  // Drag & drop CSV
+  const csvDrop = document.getElementById('csvDropArea');
+  csvDrop.addEventListener('dragover', e => e.preventDefault());
+  csvDrop.addEventListener('drop', handleCsvDrop);
   // Clock
   function updateClock() { document.getElementById('clockDisplay').innerText = new Date().toLocaleTimeString('id-ID'); }
   setInterval(updateClock, 1000); updateClock();
   showToast('Aplikasi siap');
 }
-
 init();
 </script>
 </body>
